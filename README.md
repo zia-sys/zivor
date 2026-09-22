@@ -6,6 +6,7 @@ A responsive performance-marketing website for **ZIVOR**, with a connected lead-
 
 - `index.html` — Main marketing website and lead-generation form.
 - `landing.html` — Post-submission confirmation landing page. Successful form submissions redirect here.
+- `services.html` — Dedicated services page for Meta Ads, Google Ads, creative, social media, landing pages/CRO, and analytics.
 
 ## Features
 
