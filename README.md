@@ -65,3 +65,24 @@ For GitHub Pages, make sure the repository is configured to publish the `main` b
 
 RLS is enabled on `public.leads`. The current public policy allows INSERT for `anon` and `authenticated` users but does not provide a public SELECT policy, preventing website visitors from reading submitted leads through the client.
 
+
+
+## Authentication
+
+- auth.html — Sign-up and sign-in page.
+- auth-guard.js — Protects the main website pages so users must be authenticated first.
+- auth.js — Supabase email/password authentication and password reset.
+- Supabase Auth handles passwords; public.signups stores email and signup timestamp, never the password.
+- public.signups uses RLS and users can only read their own signup record.
+- The browser form enforces a minimum password length of 8 characters. Set the Supabase Auth email-provider minimum password length to 8 in the dashboard as server-side enforcement too.
+
+## Cookie banner and GTM
+
+- A cookie banner appears on first visit with Accept/Decline choices.
+- Google Tag Manager GTM-5L5R8XZ7 loads only after optional cookie/analytics consent is accepted.
+- The cookie choice is stored in browser local storage.
+
+## WhatsApp
+
+- site.js contains the floating WhatsApp button.
+- Set WHATSAPP_NUMBER in site.js to the ZIVOR business number in international format (digits only) to open a direct chat. Without a configured number, the button opens WhatsApp Web.
