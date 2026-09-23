@@ -78,23 +78,24 @@ form.addEventListener("submit",async e=>{
 
       if(error) throw error;
 
-      // With Supabase Confirm Email disabled, signUp returns a session
-      // and the user can enter the website immediately.
       if(data.session){
         redirectHome();
         return;
       }
 
-      message.textContent="Account created, but email confirmation is still enabled in Supabase. Disable Confirm Email in Authentication → Providers → Email, then users will be redirected automatically.";
+      // Fallback: if Supabase created the account without returning a session,
+      // sign in immediately. The database auto-confirms new ZIVOR users.
+      const signInResult=await supabaseClient.auth.signInWithPassword({email,password});
+      if(!signInResult.error && signInResult.data?.session){
+        redirectHome();
+        return;
+      }
+
+      throw signInResult.error || new Error("Account created, but automatic sign-in did not complete.");
     }else if(mode==="signin"){
       const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
 
-      if(error){
-        if((error.message||"").toLowerCase().includes("email not confirmed")){
-          throw new Error("Email confirmation is enabled in Supabase. Disable Confirm Email in Authentication → Providers → Email to allow immediate sign-in.");
-        }
-        throw error;
-      }
+      if(error) throw error;
 
       if(data.session){
         redirectHome();
