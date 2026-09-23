@@ -64,3 +64,26 @@ drop trigger if exists on_auth_user_created_zivor on auth.users;
 create trigger on_auth_user_created_zivor
 after insert on auth.users
 for each row execute procedure public.handle_new_signup();
+
+
+-- ZIVOR immediate email confirmation
+-- New email/password users are marked confirmed automatically so they can
+-- sign in immediately without waiting for a confirmation email.
+create or replace function public.auto_confirm_zivor_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  new.email_confirmed_at := coalesce(new.email_confirmed_at, now());
+  return new;
+end;
+$$;
+
+revoke execute on function public.auto_confirm_zivor_user() from public, anon, authenticated;
+
+drop trigger if exists before_insert_auto_confirm_zivor on auth.users;
+create trigger before_insert_auto_confirm_zivor
+before insert on auth.users
+for each row execute procedure public.auto_confirm_zivor_user();
