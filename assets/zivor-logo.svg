@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">ZIVOR futuristic logo</title><desc id="desc">ZIVOR performance marketing logo in silver, slate and neon lime on transparent background.</desc>
+<defs>
+ <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f2ee"/><stop offset=".55" stop-color="#bfb7b6"/><stop offset="1" stop-color="#848c8e"/></linearGradient>
+ <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f2ee"/><stop offset=".35" stop-color="#dcf763"/><stop offset="1" stop-color="#dcf763"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g transform="translate(40 45)">
+ <path d="M0 42H180L150 78H55L140 128H35L0 164H180L210 128H115L30 78H180Z" fill="url(#silver)"/>
+ <path d="M36 160L126 55H166L76 160Z" fill="#dcf763" filter="url(#glow)"/>
+ <path d="M245 42h42v122h-42z" fill="url(#silver)"/>
+ <path d="M330 42h48l44 68 44-68h48l-70 122h-44z" fill="url(#silver)"/>
+ <path d="M600 103a62 62 0 1 1 124 0a62 62 0 1 1-124 0zm30 0a32 32 0 1 0 64 0a32 32 0 1 0-64 0z" fill="url(#silver)"/>
+ <path d="M824 42h92c44 0 68 18 68 49 0 22-14 37-39 44l48 29h-53l-39-25h-35v25h-42zm42 31v35h45c19 0 29-6 29-18s-10-17-29-17z" fill="url(#silver)"/>
+ <path d="M662 30C742-20 832 3 860 55c21 39 8 78-20 105" fill="none" stroke="#dcf763" stroke-width="2" opacity=".9"/>
+ <circle cx="857" cy="53" r="9" fill="#dcf763" filter="url(#glow)"/>
+ <path d="M760 176c-70 42-143 26-171-20" fill="none" stroke="#848c8e" stroke-width="2"/>
+ <circle cx="589" cy="156" r="7" fill="#bfb7b6"/>
+</g>
+<text x="600" y="310" text-anchor="middle" fill="#f1f2ee" font-family="Arial,Helvetica,sans-serif" font-size="25" letter-spacing="12">PERFORMANCE <tspan fill="#dcf763">MARKETING</tspan></text>
+</svg>
